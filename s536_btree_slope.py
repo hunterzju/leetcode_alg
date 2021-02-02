@@ -5,22 +5,14 @@
 #         self.left = left
 #         self.right = right
 def subtree_sum(root:TreeNode) -> int:
-    if root.left == None and root.right == None:
-        return root.val
-    elif root.left == None and root.right != None:
-        return root.val + subtree_sum(root.right)
-    elif root.left != None and root.right == None:
-        return root.val + subtree_sum(root.left)
+    if root == None:
+        return 0
     else:
         return root.val + subtree_sum(root.left) + subtree_sum(root.right)
 
 class Solution:
     def findTilt(self, root: TreeNode) -> int:
-        if root.left == None and root.right == None:
+        if root == None:
             return 0
-        elif root.left == None and root.right != None:
-            return subtree_sum(root.right) + self.findTilt(root.right)
-        elif root.left != None and root.right == None:
-            return subtree_sum(root.left) + self.findTilt(root.left)
         else:
             return abs(subtree_sum(root.left) - subtree_sum(root.right)) + self.findTilt(root.left) + self.findTilt(root.right)
