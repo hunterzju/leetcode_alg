@@ -39,21 +39,6 @@ class Solution:
                 tmp_sum -= nums[slow_p]
                 slow_p += 1
 
-
-        # tmp_sum = 0
-        # while fast_p < nums_len:
-        #     if tmp_sum < target:
-        #         tmp_sum += nums[fast_p]
-        #         fast_p += 1
-        #     else:
-        #         if slow_p < fast_p:
-        #             tmp_len = fast_p - slow_p
-        #             print("tmp_sum:{},tmp_len:{},fast:{},slow:{}".format(tmp_sum, tmp_len, fast_p, slow_p))
-        #             if tmp_len < min_cnt and tmp_sum >= target:
-        #                 min_cnt = tmp_len
-        #             tmp_sum -= nums[slow_p]
-        #             slow_p += 1
-    
         if min_cnt < 10 ** 6:
             return min_cnt
         else:
